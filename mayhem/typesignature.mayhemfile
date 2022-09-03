@@ -1,0 +1,7 @@
+project: jni-rs
+target: typesignature
+
+cmds:
+  - cmd: /typesignature
+  - cmd: /typesignature_no_inst @@
+    libfuzzer: false
