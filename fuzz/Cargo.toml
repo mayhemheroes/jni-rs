@@ -2,7 +2,7 @@
 name = "jni-fuzz"
 version = "0.0.0"
 publish = false
-edition = "2018"
+edition = "2021"
 
 [package.metadata]
 cargo-fuzz = true
@@ -11,7 +11,7 @@ cargo-fuzz = true
 libfuzzer-sys = "0.4"
 
 [dependencies.jni]
-path = ".."
+path = "../crates/jni"
 
 # Prevent this from interfering with workspaces
 [workspace]
