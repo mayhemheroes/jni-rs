@@ -1,0 +1,28 @@
+[package]
+name = "jni-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+
+[dependencies.jni]
+path = "../../crates/jni"
+
+# Keep this fuzz crate out of the parent (jni-rs) cargo workspace so cargo-fuzz can build it
+# in isolation without inheriting the workspace's resolver/feature set.
+[workspace]
+members = ["."]
+
+[profile.release]
+debug = 1
+
+[[bin]]
+name = "typesignature"
+path = "fuzz_targets/typesignature.rs"
+test = false
+doc = false
